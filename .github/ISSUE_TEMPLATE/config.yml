@@ -1,0 +1,6 @@
+# Keep a blank issue available to request a private security contact without disclosing details.
+blank_issues_enabled: true
+contact_links:
+  - name: How to report a vulnerability privately
+    url: https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately
+    about: Read SECURITY.md first. Use this repository's private reporting option if enabled; otherwise ask a maintainer for a private channel without disclosing details.

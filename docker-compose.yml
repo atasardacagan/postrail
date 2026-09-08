@@ -1,0 +1,60 @@
+x-app: &app
+  build: .
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql://brand:${POSTGRES_PASSWORD:?Run npm run env:init}@postgres:5432/brand_engine
+    NODE_ENV: production
+    APP_MODE: live
+    HOST: 0.0.0.0
+  restart: unless-stopped
+  init: true
+  read_only: true
+  tmpfs:
+    - /tmp
+  cap_drop: [ALL]
+  security_opt:
+    - no-new-privileges:true
+  stop_grace_period: 15m
+services:
+  postgres:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: brand
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run npm run env:init}
+      POSTGRES_DB: brand_engine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U brand -d brand_engine"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  migrate:
+    <<: *app
+    command: [node, dist/scripts/migrate.js]
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+  api:
+    <<: *app
+    command: [node, dist/src/main.js]
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  worker:
+    <<: *app
+    command: [node, dist/src/worker.js]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+volumes:
+  postgres_data:

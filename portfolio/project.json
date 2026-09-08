@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "slug": "postrail",
+  "name": "Postrail",
+  "title": "Human-approved AI content workflows",
+  "tagline": "AI drafts. You decide what ships.",
+  "summary": "An AI-assisted LinkedIn publishing system with a persistent idea backlog, scoped text revisions, Telegram approval, and version-aware publishing.",
+  "description": "Postrail connects topic selection, Turkish AI drafting, bounded quality checks, natural-language revisions, and official LinkedIn publishing in a durable workflow. Every successful revision creates a new version, and only explicit human approval can authorize the current version for publication.",
+  "projectType": "Open-source engineering project",
+  "categories": [
+    "AI automation",
+    "Backend engineering",
+    "API integrations",
+    "Content operations"
+  ],
+  "role": [
+    "System architecture",
+    "Backend development",
+    "AI workflow engineering",
+    "Integration design",
+    "Automated testing"
+  ],
+  "stack": [
+    "TypeScript",
+    "Node.js",
+    "Fastify",
+    "PostgreSQL",
+    "OpenAI Responses API",
+    "Telegram Bot API",
+    "LinkedIn API",
+    "Zod",
+    "Vitest",
+    "PGlite",
+    "Docker"
+  ],
+  "problem": "Professional content workflows need useful ideas, reliable editing, a clear approval boundary, and recovery when external APIs fail. A reviewer must know which exact version their approval will publish.",
+  "solution": "Keep the review loop in Telegram, preserve versioned state in PostgreSQL, restrict AI edits to allowed paragraphs, and publish only the explicitly approved current version through the official LinkedIn integration.",
+  "features": [
+    {
+      "title": "Approval bound to the current version",
+      "description": "The model cannot authorize publication. Each accepted revision requires another explicit human approval."
+    },
+    {
+      "title": "Scoped natural-language revisions",
+      "description": "Server-resolved paragraph IDs keep untargeted text unchanged; ambiguous references request clarification."
+    },
+    {
+      "title": "Durable workflow state",
+      "description": "Persistent jobs, publish attempts, and notifications support retries and recovery. Uncertain publish results require reconciliation."
+    },
+    {
+      "title": "A maintained editorial backlog",
+      "description": "Balanced content pillars, recent-topic penalties, and bounded idea batches shape topic selection."
+    },
+    {
+      "title": "Learning from available measurements",
+      "description": "Observed content patterns inform suggestions while preserving exploration and keeping missing measurements explicit."
+    },
+    {
+      "title": "A reproducible offline workflow",
+      "description": "Forty distinct fixtures exercise drafting, revision, review, and publication adapters without live credentials."
+    }
+  ],
+  "architecture": [
+    "Persistent schedule",
+    "Idea selection",
+    "Structured AI draft",
+    "Quality and repetition checks",
+    "Telegram review",
+    "Scoped revision or explicit approval",
+    "Publish approved current version",
+    "Store result and notify operator",
+    "Available measurements inform future suggestions"
+  ],
+  "evidence": {
+    "validationDocument": "docs/VALIDATION.md",
+    "acceptanceFlow": "Schedule → draft v1 → opening revision v2 → CTA removal v3 → explicit approval → one publication-adapter call for v3.",
+    "mode": "Recorded offline workflow and automated integration tests",
+    "liveAccountVerification": false,
+    "productionDeploymentClaimed": false,
+    "customerUsageClaimed": false,
+    "growthResultsClaimed": false,
+    "automatedTestsPassed": 182,
+    "nativePostgreSQLVersion": "17.10"
+  },
+  "limitations": [
+    "Turkish is the currently supported content language.",
+    "Each deployment has one configured operator.",
+    "Offline content uses a finite fixture pool and deterministic example revisions.",
+    "Quality and source checks are fallible; they do not perform autonomous web fact-checking.",
+    "The default repetition detector is lexical; an embedding provider is not enabled by default.",
+    "A hosted dashboard, billing, and self-service multi-account onboarding are future work.",
+    "Live provider credentials, product permissions, and account-specific behavior require separate validation."
+  ],
+  "links": {
+    "repositoryUrl": "https://github.com/atasardacagan/postrail",
+    "workflowUrl": "https://github.com/atasardacagan/postrail#watch-the-workflow",
+    "liveDemoUrl": null,
+    "portfolioPageUrl": null
+  },
+  "portfolio": {
+    "intendedOrigin": "https://www.ardacaganatas.com",
+    "siteStatus": "not-live",
+    "websiteModified": false,
+    "caseStudyDocument": "portfolio/PROJECT.md"
+  },
+  "ctas": [
+    {
+      "id": "source",
+      "label": "Explore the source",
+      "labelTr": "Kaynak kodunu incele",
+      "destinationKey": "links.repositoryUrl",
+      "href": "https://github.com/atasardacagan/postrail",
+      "enabled": true,
+      "enableWhen": "The repository exists and its verified public URL is supplied."
+    },
+    {
+      "id": "workflow",
+      "label": "View the workflow",
+      "labelTr": "Akışı incele",
+      "destinationKey": "links.workflowUrl",
+      "href": "https://github.com/atasardacagan/postrail#watch-the-workflow",
+      "enabled": true,
+      "enableWhen": "A verified public workflow or case-study presentation URL is supplied."
+    }
+  ],
+  "assetBase": "repository-root",
+  "assetStatus": "rendered-and-reviewed",
+  "assets": {
+    "hero": {
+      "path": "assets/hero.png",
+      "alt": "Postrail project illustration showing AI drafting, human review, and approved publishing.",
+      "kind": "illustration"
+    },
+    "socialPreview": {
+      "path": "assets/social-preview.png",
+      "alt": "Postrail social preview: AI drafts. You decide what ships.",
+      "kind": "illustration"
+    },
+    "projectCard": {
+      "path": "assets/showcase/project-card.png",
+      "alt": "Postrail portfolio card presenting the human-approved LinkedIn content workflow.",
+      "kind": "project-presentation"
+    },
+    "workflow": {
+      "path": "assets/showcase/workflow.png",
+      "alt": "Presentation of the recorded offline Postrail workflow from draft through revision and explicit approval.",
+      "kind": "fixture-workflow-presentation"
+    },
+    "demo": {
+      "path": "assets/demo/workflow.gif",
+      "alt": "Animated presentation of the recorded offline workflow: draft, revise, approve, and publish through the fixture adapter.",
+      "kind": "fixture-workflow-presentation"
+    },
+    "logo": {
+      "path": "assets/brand/logo.svg",
+      "alt": "Postrail logo.",
+      "kind": "brand-mark"
+    }
+  },
+  "showcaseDisclosure": "The workflow showcase presents the recorded offline fixture flow. It is not a shipped web dashboard, a live LinkedIn account result, or evidence of audience growth. Designed cover art is illustrative.",
+  "locales": {
+    "tr": {
+      "title": "İnsan onaylı AI içerik akışları",
+      "tagline": "AI hazırlar, son kararı sen verirsin.",
+      "summary": "AI ile LinkedIn taslakları hazırlayan, doğal dilde revizyon alan ve Telegram üzerinden açık onay bekleyen içerik sistemi. Her değişikliği sürümler ve onaylanan son metni yayınlar."
+    }
+  },
+  "assetPublicUrlsConfigured": false
+}

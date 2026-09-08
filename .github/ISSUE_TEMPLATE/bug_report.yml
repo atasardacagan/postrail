@@ -1,0 +1,88 @@
+name: Bug report
+description: Report a reproducible application or documentation problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic content and remove secrets from every field.
+        For an authorization bypass, credential leak, unintended publication, or other suspected vulnerability, follow SECURITY.md instead of posting details here.
+  - type: checkboxes
+    id: reporting-safety
+    attributes:
+      label: Before submitting
+      options:
+        - label: This is a non-sensitive bug report, and I removed credentials, private drafts, OAuth codes, and account identifiers.
+          required: true
+        - label: I checked existing issues for the same problem.
+          required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Affected revision
+      description: Commit hash, release, or download date. Do not include a private repository URL.
+      placeholder: Commit hash or version
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where does it happen?
+      options:
+        - Offline demo or development
+        - Tests
+        - Live mode with polling
+        - Live mode with webhooks
+        - Docker build or startup
+        - Documentation or setup
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Runtime and environment
+      description: OS, Node.js/npm versions, PostgreSQL or PGlite, and Docker version if relevant. Never paste .env or a connection URL.
+      placeholder: |
+        OS:
+        Node.js:
+        npm:
+        Database:
+        Docker (if relevant):
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Prefer offline adapters and a small synthetic example. Describe configuration by key name, without secret values.
+      placeholder: |
+        1. Start with ...
+        2. Submit this synthetic input ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should the application do?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the relevant job/post status or HTTP status. Do not include private post text or account data.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Optional short excerpt of test output or doctor results. Review it manually; do not paste full infrastructure logs or provider responses.
+      render: text
+  - type: textarea
+    id: validation
+    attributes:
+      label: Checks already attempted
+      description: Relevant test commands, whether the issue reproduces offline, and whether real PostgreSQL tests were run or skipped. Distinguish provider permission errors from application failures.

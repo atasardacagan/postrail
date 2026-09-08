@@ -1,0 +1,135 @@
+{
+  "project": "Postrail",
+  "recordedAt": "2026-09-08T04:20:45.825Z",
+  "mode": "offline",
+  "provenance": "Real application and PostgreSQL-compatible PGlite migrations; fixture writer, Telegram and LinkedIn adapters. Scheduler slot accelerated to the current minute. No live provider call or real social post.",
+  "defaultSchedule": {
+    "days": [
+      2,
+      4,
+      6
+    ],
+    "times": [
+      "10:30"
+    ],
+    "timezone": "Europe/Istanbul"
+  },
+  "steps": [
+    {
+      "title": "A draft arrives for review",
+      "instruction": null,
+      "version": 1,
+      "status": "waiting_approval",
+      "text": "Lead formundan sonra sessizlik oluşmasını önlemek\n\nTalep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir.\n\nTalebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın.\n\nSizin ekipte ilk görünür hale getirmek istediğiniz darboğaz hangisi?",
+      "blocks": [
+        {
+          "id": "hook",
+          "kind": "hook",
+          "text": "Lead formundan sonra sessizlik oluşmasını önlemek"
+        },
+        {
+          "id": "body-1",
+          "kind": "body",
+          "text": "Talep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir."
+        },
+        {
+          "id": "body-2",
+          "kind": "body",
+          "text": "Talebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın."
+        },
+        {
+          "id": "cta",
+          "kind": "cta",
+          "text": "Sizin ekipte ilk görünür hale getirmek istediğiniz darboğaz hangisi?"
+        }
+      ],
+      "publishCalls": 0
+    },
+    {
+      "title": "Only the opening changes",
+      "instruction": "girişi daha kısa ve vurucu yap",
+      "version": 2,
+      "status": "waiting_approval",
+      "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?\n\nTalep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir.\n\nTalebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın.\n\nSizin ekipte ilk görünür hale getirmek istediğiniz darboğaz hangisi?",
+      "blocks": [
+        {
+          "id": "hook",
+          "kind": "hook",
+          "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?"
+        },
+        {
+          "id": "body-1",
+          "kind": "body",
+          "text": "Talep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir."
+        },
+        {
+          "id": "body-2",
+          "kind": "body",
+          "text": "Talebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın."
+        },
+        {
+          "id": "cta",
+          "kind": "cta",
+          "text": "Sizin ekipte ilk görünür hale getirmek istediğiniz darboğaz hangisi?"
+        }
+      ],
+      "publishCalls": 0
+    },
+    {
+      "title": "Remove the CTA. Keep the rest.",
+      "instruction": "CTA’yı çıkar",
+      "version": 3,
+      "status": "waiting_approval",
+      "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?\n\nTalep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir.\n\nTalebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın.",
+      "blocks": [
+        {
+          "id": "hook",
+          "kind": "hook",
+          "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?"
+        },
+        {
+          "id": "body-1",
+          "kind": "body",
+          "text": "Talep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir."
+        },
+        {
+          "id": "body-2",
+          "kind": "body",
+          "text": "Talebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın."
+        }
+      ],
+      "publishCalls": 0
+    },
+    {
+      "title": "The approved version is published",
+      "instruction": "onayla",
+      "version": 3,
+      "status": "published",
+      "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?\n\nTalep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir.\n\nTalebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın.",
+      "blocks": [
+        {
+          "id": "hook",
+          "kind": "hook",
+          "text": "Ekibiniz aynı bilgiyi neden tekrar tekrar taşıyor?"
+        },
+        {
+          "id": "body-1",
+          "kind": "body",
+          "text": "Talep formu dolduktan sonra kaydın kime gideceğini belirleyin. Atama yapılmadığında kayıt ortak bir kutuda bekleyebilir; ekipte herkes başka birinin ilgilendiğini düşünebilir."
+        },
+        {
+          "id": "body-2",
+          "kind": "body",
+          "text": "Talebin durumu görünür olsun. Yanıtlanmadığında hatırlatma, yanlış ekibe gittiğinde yeniden atama yolu tanımlayın."
+        }
+      ],
+      "publishCalls": 1
+    }
+  ],
+  "summary": {
+    "versions": 3,
+    "publishCalls": 1,
+    "telegramMessages": 4,
+    "approvedVersion": 3
+  }
+}

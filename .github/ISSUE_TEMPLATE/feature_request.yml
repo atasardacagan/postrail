@@ -1,0 +1,51 @@
+name: Feature proposal
+description: Propose a focused improvement to the human-approved content workflow.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the user problem and the smallest useful change.
+        Publication must continue to require explicit human approval of the latest draft version. Keep credentials and private content out of this proposal.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Who is affected, and what currently makes the workflow difficult?
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      description: Describe a concrete example from input to result. Include how the user reviews or controls the change.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Approval, data, and provider boundaries
+      description: Explain any effect on draft versions, publication, retries, credentials, external API access, or user data. Write “No change” where appropriate.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing configuration, a smaller change, or a separate adapter/workflow that could solve the problem.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable behavior or tests that would show the feature works. Include what happens when a required API permission or data source is unavailable.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: The proposal preserves explicit human approval and does not require unsolicited direct messages, connection requests, or scraping.
+          required: true
+        - label: I can help implement or test this change.
+          required: false
