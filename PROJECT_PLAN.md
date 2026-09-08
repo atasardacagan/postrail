@@ -39,7 +39,7 @@ Telegram özel sohbet ve allowlist, webhook secret, replay deduplication, tenant
 - Credential olmadan offline çalışma; gerçek yayın için kullanıcı servis bağlantıları gerekir.
 
 ## Doğrulama sınırları
-Bu makinede Docker ve Apple Git geliştirici araçları başlangıçta kurulu değildi. Docker dosyaları oluşturuldu; mevcut ortamda Node/PGlite doğrulaması yapıldı. Gerçek Telegram/LinkedIn/OpenAI çağrıları credential sağlanana kadar kontrat testleriyle doğrulanır. Canlı yayın yalnız kullanıcı bağlantıları ve gönderiye özel açık Telegram onayıyla mümkündür.
+8 Eylül 2026 tarihinde geçici ve yalnız localhost’a bağlı native PostgreSQL 17.10 üzerinde tüm testler çalıştırıldı: 10 dosyada 182 test PASS, 0 SKIP. Bu koşu ayrı bağlantı havuzlarıyla 8 concurrency testi ve 1 PostgreSQL uçtan uca iş akışı testini de içerir. TEST_DATABASE_URL tanımlanmayan varsayılan test koşusunda 173 test çalışır, bu 9 test açıkça SKIP olur. Docker container build/boot bu doğrulamanın kapsamında değildir. Gerçek Telegram/LinkedIn/OpenAI çağrıları test adapter’ları ve HTTP kontrat fixture’larıyla doğrulanmıştır; canlı sağlayıcı izinleri ve gerçek yayın test edilmemiştir. Canlı yayın yalnız kullanıcı bağlantıları ve gönderiye özel açık Telegram onayıyla mümkündür.
 
 ## Tamamlanan teslimat — 8 Eylül 2026
 
@@ -52,6 +52,6 @@ Bu makinede Docker ve Apple Git geliştirici araçları başlangıçta kurulu de
 - Manuel/izinli API metrikleri, eksik veri koruması, örnek sayısına duyarlı skor ve keşif/öğrenme tamamlandı.
 - Docker, migration servisi, API/worker ayrımı, isteğe bağlı n8n workflow, CI ve Türkçe kullanım belgeleri tamamlandı.
 - Canlı aktivasyon için credential değerlerini göstermeyen doctor, güvenli environment üretimi ve açık PostgreSQL test komutu eklendi.
-- Son doğrulama: 173 test PASS, typecheck/lint/build PASS, kabul senaryosu PASS. Önceki oturumdaki yerel gerçek HTTP akışı ve yeniden başlatma kalıcılığı PASS; güncellenen port izinleri nedeniyle son oturumda tekrar çalıştırılmadı.
-- Ayrı PostgreSQL sunucusu gerektiren 8 concurrency ve 1 uçtan uca test bu ortamda SKIP; CI PostgreSQL 17 ile çalıştıracak şekilde eklendi. Yerel PostgreSQL sunucusu başlatma denemesi port izinleri nedeniyle engellendi. Docker yok; container build/boot burada yapılmadı. Canlı servis credential'ları ve OAuth kullanıcı yetkisi sağlanmadığı için dış serviste yayın yapılmadı.
+- Son tam doğrulama: native PostgreSQL 17.10 ile 182 test PASS / 0 SKIP; typecheck/lint/build PASS. Gerçek PostgreSQL üzerinde scheduler → hook revizyonu → CTA çıkarma → son sürümü açık onay → tek yayın adapter çağrısı → kalıcı kayıt ve bildirim kabul senaryosu PASS. PostgreSQL bağlantısı verilmeden çalıştırılan varsayılan suite sonucu 173 PASS / 9 SKIP olarak ayrı raporlanır.
+- Daha önce port izinleri nedeniyle çalıştırılamayan 8 PostgreSQL concurrency ve 1 uçtan uca test, 8 Eylül 2026 tarihinde izin verilen geçici native sunucuda tamamlandı. Üretilmiş test parolası ve izole test schema’ları kullanıldı; sunucu koşu sonunda durduruldu. Docker container build/boot burada yapılmadı. Canlı servis credential’ları ve OAuth kullanıcı yetkisi sağlanmadığı için dış serviste yayın yapılmadı.
 - Ayrıntılı sonuçlar: docs/VALIDATION.md. Bu sınırlara canlı ortamda geçmiş test sonucu atfedilmez.

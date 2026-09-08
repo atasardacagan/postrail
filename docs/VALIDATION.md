@@ -6,6 +6,7 @@ Recorded on **2026-09-08**, macOS arm64, Node.js 26.5.0 and npm 11.17.0. The dep
 
 | Check | Observed result |
 | --- | --- |
+| Clean public clone: `npm ci`, `npm run check`, `npm run demo` | PASS without `.env` or provider credentials; standard 173-pass / 9-skip mode |
 | `npm run typecheck` | PASS |
 | `npm run lint` | PASS; no warnings |
 | Full suite with disposable native PostgreSQL 17.10 | **182 PASS; 0 skipped; 10 test files** |
@@ -24,6 +25,10 @@ A temporary PostgreSQL 17.10 process bound only to localhost, used a disposable 
 
 Earlier local HTTP smoke verification also exercised authorization rejection and the full v1 → v2 → v3 → approval → published flow, including persistence after restart. Current automated HTTP handler checks use Fastify injection. Those records are separate from a public deployment or live provider test.
 
+## Source publication checks
+
+The working source, staged blobs and reachable Git history passed the bounded source audit. Synthetic failure fixtures confirmed that flagged values fail without being printed. Exact synthetic doctor fixtures are narrowly allowlisted. No local environment file or runtime database is included in the release source. This check is not an independent security audit.
+
 ## Test coverage
 
 | Suite | Tests | What it checks |
@@ -39,7 +44,7 @@ Earlier local HTTP smoke verification also exercised authorization rejection and
 | Native PostgreSQL concurrency | 8 | Separate-pool contention, migration, approval/version races, publication claims, job serialization and deduplication |
 | Native PostgreSQL workflow | 1 | Scheduler through scoped revisions, explicit approval, one publication and durable notification |
 
-The first 173 tests do not require a separate database server. SQL checks use PGlite's PostgreSQL WebAssembly engine and real migrations, not a JavaScript map pretending to be a database. The remaining nine require `TEST_DATABASE_URL`; see [PostgreSQL testing](POSTGRES_TESTING.md). A successful local suite is not a claim that remote GitHub CI has already run.
+The first 173 tests do not require a separate database server. SQL checks use PGlite's PostgreSQL WebAssembly engine and real migrations, not a JavaScript map pretending to be a database. The remaining nine require `TEST_DATABASE_URL`; see [PostgreSQL testing](POSTGRES_TESTING.md). The [first GitHub CI run](https://github.com/atasardacagan/postrail/actions/runs/34268811467) also completed successfully: Node.js 24 quality/offline acceptance, PostgreSQL 17 concurrency/workflow, and production Docker image build.
 
 ## Acceptance scenario
 
@@ -58,7 +63,7 @@ Offline URLs use `example.invalid`. Demo content is a fixture, not live model ou
 
 - Real Telegram, OpenAI and LinkedIn credentials, product permissions, OAuth and a specifically approved first post.
 - Actual model output quality, factual accuracy and account-specific costs.
-- Docker container build/boot, persistent volume behavior and public TLS deployment on a Docker-capable host. The CI workflow includes a build job; its existence alone is not a passing result.
+- Docker container startup, persistent volume behavior and public TLS deployment on a Docker-capable host. The production image build passed in GitHub CI; that does not validate a complete deployment.
 - Optional n8n workflow import/activation and optional LinkedIn analytics permission.
 
 No autonomous web fact-checking or external exactly-once guarantee is claimed. Uncertain LinkedIn creation outcomes halt automatic retries for operator reconciliation. See [architecture](ARCHITECTURE.md), [security](../SECURITY.md) and [live setup](SETUP.md).

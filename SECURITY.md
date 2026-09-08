@@ -6,7 +6,7 @@ Postrail handles publishing credentials, private drafts, and actions that can ap
 
 ## Report a vulnerability privately
 
-If the repository has GitHub private vulnerability reporting enabled, open its **Security** tab and choose **Report a vulnerability**. Submit details through that private advisory flow. Availability depends on the repository's GitHub settings; adding this file does not enable the feature. [GitHub's private reporting instructions](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately)
+Private vulnerability reporting is enabled for the official repository. Open its **Security** tab and choose **Report a vulnerability**, or use the [private reporting form](https://github.com/atasardacagan/postrail/security/advisories/new). Submit details through that private advisory flow. Forks must enable their own reporting settings. [GitHub's private reporting instructions](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately)
 
 If that option is unavailable, ask a maintainer for a private reporting channel. You may open an issue titled **Request for a private security reporting channel**, containing only that request. Do not include the vulnerability, affected account, exploit, sensitive logs, or credentials in the public issue. No private email address or response-time commitment is implied by this policy.
 

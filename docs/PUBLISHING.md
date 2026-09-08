@@ -6,11 +6,13 @@
 - **Description:** AI LinkedIn content with Telegram approval, scoped revisions, durable scheduling, and optional analytics. Self-hosted TypeScript + PostgreSQL.
 - **Topics:** `linkedin`, `telegram-bot`, `ai`, `automation`, `human-in-the-loop`, `content-generation`, `typescript`, `nodejs`, `fastify`, `postgresql`, `scheduler`, `self-hosted`, `oauth2`, `docker`, `n8n`
 - **Website:** leave empty until the portfolio case study has a real public URL. The intended origin `https://www.ardacaganatas.com` is not live yet.
-- **Social preview:** upload `assets/social-preview.png` in repository Settings → General → Social preview.
-- **Features:** Issues and Releases useful; Wiki/Projects/Discussions are optional and not needed for the initial source release.
-- **Private vulnerability reporting:** enable under repository security settings if available before advertising the private reporting path.
+- **Social preview:** `assets/social-preview.png` uploaded and visually verified in repository Settings → General → Social preview.
+- **Features:** Issues and Releases enabled; Wiki and Projects disabled for a focused source repository.
+- **Private vulnerability reporting:** enabled and verified. GitHub secret scanning and push protection are enabled.
 
 This local TypeScript project is distinct from the existing Python repository named `linkedin-ai-automation`. Do not overwrite that repository or rewrite its history to publish this project.
+
+The source repository is [atasardacagan/postrail](https://github.com/atasardacagan/postrail). About description and all fifteen topics above are configured. The repository URL is present in the README, package metadata and portfolio CTAs.
 
 ## Before a public push
 
@@ -20,15 +22,15 @@ The local working copy originally had no Git repository or prior commit history.
 
 ## First release
 
-Version metadata is `1.0.0`. Use tag `v1.0.0` only on the final verified source commit. The prepared notes are in `docs/releases/v1.0.0.md`. Include the source archive and `SHA256SUMS` as release assets. GitHub also generates archives from the tag.
+Version metadata is `1.0.0`. Use tag `v1.0.0` only on the final verified source commit. The version notes are in `docs/releases/v1.0.0.md`. Include the source archive and `SHA256SUMS` as release assets. GitHub also generates archives from the tag.
 
 1. Verify all three CI jobs on the final commit: quality/offline acceptance, PostgreSQL 17, production image build.
 2. Resolve any failing job. Do not describe a pending run as passing.
-3. Create the `v1.0.0` release from that verified commit with the prepared notes.
+3. Create the `v1.0.0` release from that verified commit with the version notes.
 4. Open the README, image links, social preview and release download as an unauthenticated visitor.
 5. Add the verified repository URL to `portfolio/project.json` and enable its source CTA. Leave a live-demo CTA disabled unless a live demo actually exists.
 
-Do not add a build-passing badge manually. A workflow badge may point to the actual repository's Actions workflow once the repository exists. The README currently uses only descriptive technology and license badges.
+Do not add a build-passing badge manually. A workflow badge may point to the actual repository's Actions workflow once the repository exists. The README includes descriptive technology/license badges and the actual Verify workflow badge.
 
 ## Ongoing releases
 

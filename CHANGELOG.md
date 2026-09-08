@@ -1,10 +1,10 @@
 # Changelog
 
-Changes to Postrail are recorded here. A prepared release entry does not mean its tag or GitHub release has been published.
+Changes to Postrail are recorded here. See GitHub Releases for downloadable versioned source packages.
 
-## 1.0.0 — prepared, not published
+## 1.0.0 — 2026-09-08
 
-This entry describes the upcoming source release. It is an initial self-hosted implementation with a tested local workflow, rather than a claim of established production deployments or customer growth results.
+This is the first source release. It is an initial self-hosted implementation with a tested local workflow, rather than a claim of established production deployments or customer growth results.
 
 ### Added
 
@@ -19,10 +19,10 @@ This entry describes the upcoming source release. It is an initial self-hosted i
 - Setup checks, environment-file generation, Docker/Compose configuration, an optional n8n orchestration workflow, and administration APIs.
 - Postrail branding, recorded offline workflow presentation assets, English project documentation, and reusable portfolio content.
 
-### Validation recorded for this prepared release
+### Validation
 
 - 182 automated tests passed, including the native PostgreSQL 17.10 concurrency and workflow checks.
-- Type checking, linting, and the application build passed.
+- Type checking, linting, and the application build passed; all three GitHub CI jobs also passed on Node.js 24, PostgreSQL 17, and a Docker-capable runner.
 - The offline acceptance flow produced three versions and one publication-adapter call for the final approved version.
 
 See [the validation record](docs/VALIDATION.md) for the environment and evidence. The standard local test command can skip the dedicated native PostgreSQL tests when no test database is configured; use the [PostgreSQL testing guide](docs/POSTGRES_TESTING.md) to run them.
@@ -30,10 +30,10 @@ See [the validation record](docs/VALIDATION.md) for the environment and evidence
 ### Current boundaries
 
 - Real OpenAI, Telegram, and LinkedIn account behavior was not validated with live credentials; live model quality and costs were not measured.
-- Docker build/boot and activation of the optional n8n workflow were not validated in the development environment.
+- The Docker image builds successfully in GitHub CI. Container startup and optional n8n activation still require deployment verification.
 - Turkish is the supported content language, and each deployment has one configured operator.
 - The offline fixture pool is finite. Source checks are fallible and do not perform autonomous web fact-checking.
 - A default embedding backend, scheduled trend ingestion, a hosted dashboard, billing, and self-service multi-account onboarding are future work.
 - LinkedIn publication is not presented as provider-guaranteed exactly-once delivery. Uncertain results stop automatic publication retry and require reconciliation.
 
-Read the [prepared release notes](docs/releases/v1.0.0.md) for the release overview and the [roadmap](docs/ROADMAP.md) for possible next contributions.
+Read the [release notes](docs/releases/v1.0.0.md) for the release overview and the [roadmap](docs/ROADMAP.md) for possible next contributions.

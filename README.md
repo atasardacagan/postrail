@@ -7,6 +7,7 @@
 <p align="center">Self-hosted AI LinkedIn content, natural-language revisions, and Telegram approval — with a durable workflow behind every post.</p>
 
 <p align="center">
+  <a href="https://github.com/atasardacagan/postrail/actions/workflows/ci.yml"><img alt="Verify workflow status" src="https://github.com/atasardacagan/postrail/actions/workflows/ci.yml/badge.svg" /></a>
   <a href="https://nodejs.org/"><img alt="Node.js 24+" src="https://img.shields.io/badge/Node.js-24%2B-355B4F?style=flat-square" /></a>
   <a href="https://www.typescriptlang.org/"><img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-355B4F?style=flat-square" /></a>
   <a href="https://www.postgresql.org/"><img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-durable%20state-355B4F?style=flat-square" /></a>
@@ -151,7 +152,7 @@ npm run demo            # Complete account-free acceptance scenario
 npm run test:postgres   # Requires an explicit disposable TEST_DATABASE_URL
 ```
 
-Live account calls, provider permissions, real model output quality and the Docker deployment need their own verification. LinkedIn analytics may require additional product approval; unsupported metrics remain absent. Quality checks do not perform autonomous web fact-checking. The default similarity detector is lexical; embedding support is an extension point. Performance learning is a heuristic over observed data, not model training or a growth guarantee.
+GitHub CI also passes on Node.js 24 with PostgreSQL 17 and builds the production Docker image. Live account calls, provider permissions, real model output quality and deployment startup still need their own verification. LinkedIn analytics may require additional product approval; unsupported metrics remain absent. Quality checks do not perform autonomous web fact-checking. The default similarity detector is lexical; embedding support is an extension point. Performance learning is a heuristic over observed data, not model training or a growth guarantee.
 
 ## Roadmap
 

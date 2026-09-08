@@ -12,6 +12,10 @@ The engineering focus is accountable automation: revisions preserve untargeted b
 
 Repository slug: `postrail`. Description: AI LinkedIn content with Telegram approval, scoped revisions, durable scheduling, and optional analytics. Self-hosted TypeScript + PostgreSQL.
 
+Public source repository: [atasardacagan/postrail](https://github.com/atasardacagan/postrail). The repository exists and the source has been pushed. The [README workflow presentation](https://github.com/atasardacagan/postrail#watch-the-workflow) is the public workflow CTA; it presents recorded offline fixture behavior, not a hosted application.
+
+The intended personal portfolio origin is `https://www.ardacaganatas.com`. That website is not live in this project context and has not been modified. No deployed portfolio page or live application demo is claimed. Source publication, a versioned GitHub release, and deployment to the personal website are separate steps; publishing the source does not imply the other two are complete.
+
 Five shortlisted names were evaluated for clarity, recall and obvious product-name overlap:
 
 | Name | Assessment | Decision |
@@ -30,7 +34,7 @@ The limited name search is not a reservation of a domain, account or trademark. 
 2. Write an English README with a fast account-free path; keep Turkish operator instructions.
 3. Add a proportionate MIT license, contribution/security guidance, issue/PR templates and reproducible CI.
 4. Create an original vector identity, PNG hero/social/card exports and an accurately labeled offline workflow replay.
-5. Prepare portable portfolio copy and repository metadata without inventing a live website or repository URL.
+5. Prepare portable portfolio copy and metadata using the actual [public repository](https://github.com/atasardacagan/postrail) and its workflow section; leave the unpublished personal website and hosted demo destinations unset.
 6. Prepare a versioned source release, release notes, a publication checklist and source-secret checks.
 7. Verify commands, real PostgreSQL tests, local links, asset rendering and clean release contents.
 
